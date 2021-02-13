@@ -19,6 +19,8 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+Auth::routes(['register' => false]);
+
 Route::get('/', function () {
     return view('welcome', [
         'posts' => App\Models\Post::where('is_approved', true)->take(3)->latest()->get(),
