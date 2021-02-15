@@ -25,7 +25,11 @@
         <div>
             Category:
             <span style="color:#87ceeb;">
-                {{ $post->category->name }}
+                @if (isset($post->category->name))
+                    {{ $post->category->name }}
+                @else
+                    Not found category
+                @endif
             </span>
 
                 <hr> 

@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories');
+        return view('categories.create');
     }
 
     /**
@@ -73,8 +73,6 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return $category;
-        
         return view('categories.edit', [
             'category' => $category
         ]);
@@ -87,24 +85,24 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
-    {
-        $category = request()->validate([
-            'name' => ['required', 'string', 'max:255'],
+    public function update(Category $category, Request $request)
+    {   
+        $validateData = request()->validate([
+            'name' => ['required', 'string', 'max:255']
         ]);
 
-        if($request->has('image_url')) {
+        if ($request->has('image_url')) {
             $fileExtension = request('icon')->getClientOriginalName();
             $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
             $extension = request('icon')->getClientOriginalExtension();
             $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('icon')->storeAs('public/img/category', $newFileName);
-            
+            $imgPath = request('icon')->storeAs('public/img/post_uploads', $newFileName);
+
             $category->image_url = $newFileName;
             $category->save();
         }
 
-        $category->save();
+        $category->update($validateData);
 
         return redirect('/dashboard/categories');
     }

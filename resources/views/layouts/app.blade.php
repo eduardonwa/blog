@@ -18,15 +18,21 @@
         @yield('bootstrap')
         <!-- tinymce -->
         @yield('tinymce')
-
+        <!-- custom tinyMCE -->
+        @yield('darkmce')
+        <!-- tailwind -->
+        @yield('tailwind')
     </head>
+    
     <body>
         @auth
-        <x-seshbar/>
+            <x-seshbar/>
         @endauth
-            <div class="homepage-grid">
-                <x-navbar/>
-                @yield('content')
-            </div> <!-- Homepage grid end -->
+
+        <div class="homepage-grid">
+            <x-navbar/>
+            @yield('content')
+        </div> <!-- Homepage grid end -->
+
     </body>
 </html>

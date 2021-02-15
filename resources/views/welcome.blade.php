@@ -8,13 +8,17 @@
     <script src="https://kit.fontawesome.com/aded4e055e.js" crossorigin="anonymous"></script>   
 @endsection
 
+@section('tailwind')
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+@endsection
+
 @if(session('message'))
   <p> {{ session('message') }} </p>
 @endif
 
 @section('content')
 
-        <div class="card-content">
+        <div class="card-content" style="width:100%;">
           <h1 class="latest-header"> Latest Videos </h1>
               <div class="video">
                 <section id="video"></section>

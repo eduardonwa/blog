@@ -19,7 +19,9 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Auth::routes(['register' => false]);
+Route::get('test', function () {
+    return view('test');
+});
 
 Route::get('/', function () {
     return view('welcome', [

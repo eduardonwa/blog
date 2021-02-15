@@ -120,7 +120,6 @@ class PostsController extends Controller
      */
     public function update(Post $post, Request $request)
     {   
-
         $post->update($this->validatePost($request));
 
         $post->update(['is_approved' => $request->has('status')]);

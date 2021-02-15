@@ -34,22 +34,49 @@
                         <strong> Actions </strong>
                     </span>
                 </div>
+                
                 <div class="index-content">
                     @forelse ($posts->sortByDesc('created_at') as $post)
                         @if($post->is_approved == 1)
-                            <a class="post-title" href="/posts/{{ $post->slug }}"> <p> {{ $post->title }} </p> </a>
+                            <a class="post-title" 
+                                href="/posts/{{ $post->slug }}">
+                                <p> {{ $post->title }} </p>
+                            </a>
+                            @if(isset($post->category->name))
                                 <p class="post-category"> {{ $post->category->name }} </p>
+                            @else
+                             <p class="post-category"> Deleted </p>
+                            @endif
+
                             @foreach ($post->tags as $tag)
                                 <p class="post-tags"> #{{ $tag->name }} </p>
                             @endforeach
+
                         <span class="action-btn">
-                            <a href="/posts/{{$post->slug}}/edit"> <button class="update-btn"> <span> <i class="fas fa-sync-alt"></i> Update </span> </button> </a>
-                            <form method="POST" action="{{ route('posts.destroy', [ 'post' => $post ])}}">
+                            <a href="/posts/{{$post->slug}}/edit">
+                                <button class="update-btn">
+                                    <span> <i class="fas fa-sync-alt"></i>
+                                        Update
+                                    </span>
+                                </button>
+                            </a>
+
+                            <form method="POST"
+                                    action="{{ route('posts.destroy', ['post' => $post ])}}">
                                 @csrf
                                 @method('DELETE')
-                            <button class="danger-btn" type="submit" onclick="return confirm('Are you sure you want to delete this?')"> <span> <i class="fas fa-skull-crossbones"></i> Delete </span> </button>
+
+                                <button class="danger-btn"
+                                    type="submit"
+                                    onclick="return confirm('Are you sure you want to delete this?')">
+                                    <span>
+                                        <i class="fas fa-skull-crossbones"></i> 
+                                        Delete
+                                    </span>
+                                </button>
                             </form>
                         </span>
+
                         @endif
                             @empty
                             <p> Nothing to see here!</p>

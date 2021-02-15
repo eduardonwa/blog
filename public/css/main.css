@@ -76,6 +76,7 @@ button {
 
 input {
     height: 34px;
+    width: 100%;
     padding: 0 2.5rem 0 0.5rem;
     font-size: 1rem;
 }
@@ -445,33 +446,9 @@ textarea {
 
 /* Create Post */
 
-.newpost-form {
-    display: flex;
-    flex-direction: column;
-}
-
 #bodyArea {
     width: 300px;
     font-family: sans-serif;
-}
-
-.newpost-form > h1 {
-    color: black;
-    font-size: 1.2rem;
-    color: #87ceeb;
-    text-align: center;
-    font-weight: bold;
-}
-
-.newpost-form span {
-    color: #87ceeb;
-    font-size: 1.1rem;
-    margin: 21px auto;
-    display: block;
-}
-
-.newpost-form input {
-    width: 100%;
 }
 
 #post-details {
@@ -484,6 +461,10 @@ textarea {
     color: #87ceeb;
 }
 
+#title-field span, #body-field > span {
+    color: #87ceeb;
+}
+
 #post-details span {
     display: block;
     margin: 21px auto;
@@ -493,7 +474,7 @@ textarea {
     width: 100%;
 }
 
-.category, .tags, .post-img {
+.category, .tags, .post-img, .slug {
     width: auto;
     height: auto;
 }
@@ -502,7 +483,7 @@ textarea {
     text-align: center;
 }
 
-.submit-post {
+.submit-btn {
     height: 55px;
     width: 144px;
     font-size: 1rem;
@@ -1021,7 +1002,7 @@ input#remember[type="checkbox"]:checked:after {
     width: 100%;
 }
 
-.browse-posts {
+.browse-btn {
     color: black;
     text-decoration: none;
     display: flex;
@@ -1029,11 +1010,11 @@ input#remember[type="checkbox"]:checked:after {
     align-items: center;
 }
 
-.browse-posts:hover {
+.browse-btn:hover {
     color: black;
 }
 
-.browse-posts {
+.browse-btn {
     background-color: #0ea7a7;
     font-size: 1rem;
     height: 55px;
@@ -1526,27 +1507,24 @@ input#remember[type="checkbox"]:checked:after {
         margin-bottom: 0;
     }
     /*Create Post */
-    .newpost-form {
-        display: grid;
-        grid-template-columns: 1fr 233px;
-        grid-gap: 13px;
-        width: 987px;
+    .raro {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
     }
-    .newpost-form > #title-field {
-        grid-row: 1;
-        grid-column: 1;
+    .raro:target {
+        visibility: visible;
     }
-    input[type=text].title-field {
-        background-color: transparent;
-        border: none;
-        color: gainsboro;
-    }
-    input[type=text].title-field {
-        outline: none !important;
-    }
-    .newpost-form > #body-field {
-        grid-row: 2;
-        grid-column: 1;
+    .ventana {
+        bottom: 34px;
+        border-radius: 5px;
+        padding: 1em;
+        position: relative;
+        background-color: #1a202c;
+        box-shadow: -7px 3px 14px 3px rgba(0,0,0,0.39)
     }
     #bodyArea {
         width: 100%;
@@ -1558,34 +1536,10 @@ input#remember[type="checkbox"]:checked:after {
     #bodyArea:focus {
         outline: none !important;
     }
-    #post-details {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 13px;
-        
-        background-color: #2d3748;
-        border-radius: 5px;
-        grid-row: 2;
-        grid-column: 2;
-        
-        position: relative;
-        bottom: 55px;
-    }
-    #post-details select {
-        width: 100%;
-        height: 34px;
-    }
-    .category, .tags, .post-img {
-        width: 233px;
-        padding: 13px;
-    }
     textarea.tinyMCE {
         width: auto !important;
     }
-    .submit-post:hover {
+    .submit-btn:hover {
         border: 2px solid rgb(0, 0, 0);
         color: white;
     }

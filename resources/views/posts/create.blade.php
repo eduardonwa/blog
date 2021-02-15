@@ -1,13 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.crud-nav')
+
+@section('fontawesome')
+    <script src="https://kit.fontawesome.com/aded4e055e.js" crossorigin="anonymous"></script> 
+@endsection
 
 @section('tinymce')
-<script src="https://cdn.tiny.cloud/1/aws4tj8xvv0v21y5rqa92ji4fbcmc2kfg9ti1iqnvkz7kgxd/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/aws4tj8xvv0v21y5rqa92ji4fbcmc2kfg9ti1iqnvkz7kgxd/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector:'#bodyArea',
             plugins: 'emoticons table link code image lists',
             menubar: false,
             toolbar: 'bold italic underline | emoticons blockquote | image link | alignleft aligncenter alignright alignjustify | bullist | forecolor | fontselect formatselect lineheight',
+            max_height: 700,
+            skin: 'oxide-dark',
+            content_css : '/css/dark.css',
             mobile: {
                 theme: 'mobile'
             },
@@ -16,29 +23,24 @@
     </script>
 @endsection
 
+@section('tailwind')
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
 
-    <form class="newpost-form" 
+<x-form-nav type="posts" />
+
+    <h1 class="text-center m-8 text-2xl"> New Post </h1>
+
+    <form class="m-auto w-5/6" 
         method="POST" 
         action="/posts" 
         enctype="multipart/form-data">
-        
-        <h1 style="color:#5acd86;"> New Post </h1>
 
         @include('posts.form', [
-            'post' => new App\Models\Post
+            'post' => new App\Models\Post,
         ])
     </form> <!-- Form end -->
-
-    <script>
-        const barSesh = document.querySelector(".sesh-bar");
-        barSesh.style.display = "none";
-        const topBar = document.querySelector(".top-bar");
-        topBar.style.cssText = "grid-template-columns: 1fr;";
-        const single = document.querySelector(".social-bar");
-        single.style.display = "none";
-        const links = document.querySelector(".menu-bar");
-        links.style.display = "none";
-    </script>
-
+    
 @endsection

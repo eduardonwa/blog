@@ -7,6 +7,7 @@
     <link href="/css/main.css" rel="stylesheet">
     @yield('tinymce')
     @yield('fontawesome')
+    @yield('tailwind')
     <title>Admin</title>
 </head>
 <body>
