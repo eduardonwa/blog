@@ -18,11 +18,11 @@ The page where I show the form to create/edit a post has the entire window dedic
 }
 
 .overlay:target {
-    visitbility: visible;
+    visibility: visible;
 }
 ```
 
-Though I am not using those names that's basically it, I am toggling this element using that property and then to give it justice and show the modal wherever I want it, and that means on top of the page like any other modal out there im using:
+Though I am not using those class names exactly, that's basically it I am toggling this element using that property and then to give it justice and show the modal wherever I want it, and that means on top of the page like any other modal out there im using:
 
 ```
 .window {
@@ -33,7 +33,7 @@ Though I am not using those names that's basically it, I am toggling this elemen
 }
 ```
 
-Again it's not literal and im not using those properties, but that's the idea. For the body of the text I'm using a WYSIWYG text editor, TinyMCE which is highly customizable with lots of plugins one can keep adding.
+Again it's not literal and im not using all of those properties, but that's the idea. For the body of the text I'm using a WYSIWYG text editor, TinyMCE which is highly customizable with lots of plugins one can keep adding.
 
 # What im still working on
 
