@@ -4,9 +4,11 @@ What does this mean? That even though I like to use Laravel I feel my strongest 
 
 # Recent changes
 
+Watch a preview video https://imgur.com/bM7PlRz
+
 I just committed a better and more "stylish" forms for my Posts. I used to have a 2 columns composition, where I would have 1 column of _1fr_ dedicated to the ```textarea``` or the body of the post, and the other column with the size of **233px** to have the details of said post, so things like category, tags, slug, etc all of that would've been there.
 
-Happy to say I took it to the next level... (yeah) Im showing a preview video right here. 
+Happy to say I took it to the next level... (yeah)
 
 The page where I show the form to create/edit a post has the entire window dedicated to the body of the Post and by using a modal (CSS) im displaying and toggling a column to the right side of the screen to give me the details. Everything still looks very familiar to what I used to have, there were no Javascript or third party plug-ins adopted because im using a clever way.
 
