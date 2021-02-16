@@ -1,65 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Web developer
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+What does this mean? That even though I like to use Laravel I feel my strongest asset is the Front-End, right now im working on creating a _tight-modest_ blog for myself with the best "best practices" I can find so I can continue learning and start working on other projects.
 
-## About Laravel
+# Recent changes
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Watch a preview video https://imgur.com/bM7PlRz
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+I just committed a better and more "stylish" forms for my Posts. I used to have a 2 columns composition, where I would have 1 column of _1fr_ dedicated to the ```textarea``` or the body of the post, and the other column with the size of **233px** to have the details of said post, so things like category, tags, slug, etc all of that would've been there.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Happy to say I took it to the next level... (yeah)
 
-## Learning Laravel
+The page where I show the form to create/edit a post has the entire window dedicated to the body of the Post and by using a modal (CSS) im displaying and toggling a column to the right side of the screen to give me the details. Everything still looks very familiar to what I used to have, there were no Javascript or third party plug-ins adopted because im using a clever way.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Clever way
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+.overlay {
+    visibility: hidden;
+}
 
-## Laravel Sponsors
+.overlay:target {
+    visibility: visible;
+}
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Though I am not using those class names exactly, that's basically it I am toggling this element using that property and then to give it justice and show the modal wherever I want it, and that means on top of the page like any other modal out there im using:
 
-### Premium Partners
+```
+.window {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Again it's not literal and im not using all of those properties, but that's the idea. For the body of the text I'm using a WYSIWYG text editor, TinyMCE which is highly customizable with lots of plugins one can keep adding.
 
-## Contributing
+# What im still working on
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# blog
-# blog
-# blog
+- Still inspecting the UI of the entire blog since Im just getting used to Tailwind most of the styling in this blog uses CSS so im in the middle of adopting this framework to design my webapp.
+- Updating categories, title and image. Title does gets updated but the image needs to be deleted before it gets sent again to the storage location and it must be done so that when one creates a new post, the form doesn't delete the last picture uploaded, many people seem to encounter this. 
