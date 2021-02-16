@@ -65,8 +65,8 @@
         </a> <!-- DEV link end -->
     </div> <!-- Social bar end -->
     <nav class="menu-bar">
-        <a class="{{ Request::is('/') ? 'current-page-item' : ''}}" href="/"> Home </a> 
-        <a class="{{ Request::is('posts') ? 'current-page-item' : ''}}" href="/posts"> Posts </a> 
+        <a class="{{ Request::is('/') ? 'current-page-item' : 'link-purple' }}" href="/"> Home </a> 
+        <a class="{{ Request::is('posts') ? 'current-page-item' : 'link-purple' }}" href="/posts"> Posts </a> 
     </nav> <!-- Menu bar end -->
 </div> <!-- Top bar end -->
     <!-- The only way to do great work is to love what you do. - Steve Jobs -->

@@ -29,7 +29,7 @@
             
             <div class="quick-words">
               @foreach($posts as $post)
-                <div class="excerpt">
+                <div onmouseenter="bigImg(this)" onmouseleave="normalImg(this)" class="excerpt">
                   <img src="{{asset('/storage/img/post_uploads/'.$post->image_url) }}" alt="postimage"/> 
                   <div class="excerpt-details">
                     <a href="/posts/{{ $post->slug }}"> <h1> {{ $post->title }} </h1> </a>
@@ -137,5 +137,15 @@
     
           });
         
+        </script>
+
+        <script>
+          function bigImg(x) {
+            x.style.cssText = "background-color: rgba(0,0,0, .5);transition-duration: .2s; transition-delay: .1s;";
+          }
+
+          function normalImg(x) {
+            x.style.cssText = "background-color: #2d3748; border:none;";
+          }
         </script>
 @endsection

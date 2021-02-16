@@ -37,13 +37,12 @@
                     <div class="slug" 
                         data-validate="Slug is required">
 
-                        <label class="block text-base pb-3
-                                        font-medium text-white-700">
+                        <label class="block text-base pb-3 font-medium text-white-700">
                             Slug
                         </label>
 
                         <input 
-                            class="rounded-sm pl-2 text-black text-base @error('slug')is-danger @enderror"
+                            class="h-12 pl-2 rounded-md h-12 border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent @error('slug')is-danger @enderror"
                             type="text"
                             name="slug"
                             placeholder="Slug"
@@ -59,15 +58,13 @@
                     <div class="tags" 
                         data-validate="Tags are required">
 
-                        <label class="block text-base pb-3
-                                    font-medium text-white-700">
+                        <label class="block text-base pb-3 font-medium text-white-700">
                             Tags
                         </label>    
 
                         <select name="tags[]" 
                                 multiple
-                                class="rounded-sm text-black text-base 
-                                    cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
+                                class="text-white rounded-sm text-black text-base border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
                             @foreach($tags as $tag)
                                 <option 
                                     value="{{ $tag->id }}"
@@ -85,19 +82,20 @@
                     <div class="category" 
                         data-validate="Category is required">
 
-                        <label class="block text-base pb-3
-                                    font-medium text-white-700">
+                        <label class="block text-base pb-3 font-medium text-white-700">
                             Category
                         </label>
 
                         <select
                             name="category_id"
                             required
-                            class="rounded-sm pl-2 text-black text-base appearance-none 
+                            class="rounded-sm pl-2 text-black text-base appearance-none bg-transparent h-12 text-white
+                                    text-white-700focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent
                                     cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
                             @foreach($categories as $category)
                                 <option 
                                     value="{{ $category->id }}"
+                                    class="text-white-700"
                                     {{ $category->id == $post->category_id ? 'selected' : ''}}>
                                     {{ $category->name }}
                                 </option>
@@ -111,40 +109,33 @@
 
                     <div class="post-img">
                         <label class="block text-base font-medium text-white-700 text-center pb-4">
-                            Image
+                            Upload image
                         </label>
 
                         @if($post->image_url == true)
                             <img class="rounded-md shadow-2xl" src="{{ asset('/storage/img/post_uploads/'.$post->image_url) }}" alt="postimage"/> 
                         @endif
                         
-                        <div class="mt-2 flex justify-center px-6 pt-5 pb-6 
+                        <div class="mt-1 flex justify-center px-6
                                     border-2 border-gray-300 border-dashed rounded-md">
+
                             <div class="space-y-1 text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" 
-                                        stroke="currentColor" 
-                                        fill="none" 
-                                        viewBox="0 0 48 48" 
-                                        aria-hidden="true">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                        
+
                                 <div class="flex flex-col text-sm">  
+
                                     <label for="file-upload" 
                                             class="relative cursor-pointer 
                                                     bg-green-400 rounded-md font-medium">
-                                        
-                                        <span style="color:black;">Upload a file</span>
                                         
                                         <input 
                                             id="file-upload" 
                                             name="image" 
                                             type="file" 
                                             class="@error('image')is-danger @enderror sr-only">
+
+                                            <img src="/img/search-img.png" id="preview" class="w-34"/>
                                     </label>
-                                        <p class="pt-3" style="color: gainsboro;">
-                                            or drag and drop
-                                        </p>
+
                                 </div>  
                             </div>
                         </div>
@@ -158,8 +149,7 @@
                         style="border-bottom: 1px solid white; width: 100%;"
                         data-validate="Status is required">
 
-                            <label for="approved" 
-                                    class="block text-base text-center font-medium text-white-700">
+                            <label for="approved" class="block text-base text-center font-medium text-white-700">
                                 Publish Now
                             </label>
                         
@@ -177,3 +167,19 @@
                     </div> <!-- Submit button -->
             </div>
         </div> <!-- Slug, Tags, Image, Category & submit button end -->
+
+    <script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#file-upload").change(function(){
+            readURL(this);
+        });
+    </script>

@@ -265,6 +265,7 @@ textarea {
     padding: 21px;
     background-color: #2D3748;
     font-size: 1.1rem;
+    color: #5acd86;
 }
 
 .excerpt {
@@ -281,11 +282,11 @@ textarea {
     width: 233px;
 }
 
-.excerpt-details > a, u > h1 {
+.excerpt-details > a {
     font-weight: bold;
     padding: 3px;
-    color: #5acd86;
-    text-decoration: none !important;
+    color: white;
+    font-size: 1.5rem;
 }
 
 .excerpt-details > p {
@@ -295,8 +296,8 @@ textarea {
 
 .excerpt-details > a > .btn-readmore {
     border-radius: 5px;
-    background-color: #FF3366;
-    color: white;
+    background-color: #5acd86;
+    color: black;
     font-weight: bold;
     font-weight: 1.2rem;
     width: 133px;
@@ -356,50 +357,36 @@ textarea {
 
 .posts-index {
     margin: 34px 0;
+    margin-top: 89px;
 }
 .post-desc {
     padding: 21px;
     background-color: #2d3748;
     line-height: 25px;
-}
-
-.post-desc > a, h1 {
-    font-weight: bold;
-    color: #5acd86;
-    text-decoration: none !important;
-}
-
-.post-desc > h1 {
-    color: #5acd86;
-    font-weight: bold;
+    margin-left: 70px;
+    margin-bottom: 21px;
+    border-radius: 5px;
+    text-align: left;
 }
 
 .post-desc > p {
+    padding-top: 13px;
     padding-bottom: 13px;
     color: gainsboro;
     margin-left: 0;
 }
 
 .posts-index > img {
-    height: 100px;
-    margin: 21px 0;
-}
-
-.button-area {
+    height: 55px;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 21px;
+    padding-right: 13px;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-}
-
-.button-area button {
-    background-color: #FF3366;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    width: 133px;
-    height: 34px;
-    font-size: 1rem;
+    margin-top: 34px;
 }
 
 /* Contact form */
@@ -458,11 +445,6 @@ textarea {
 #post-details div {
     margin: 21px 0;
     font-size: 1.1rem;
-    color: #87ceeb;
-}
-
-#title-field span, #body-field > span {
-    color: #87ceeb;
 }
 
 #post-details span {
@@ -551,6 +533,20 @@ textarea {
 
 .space-tags {
     margin: 21px auto;
+}
+
+.link-purple:hover {
+    color: #008080 !important;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: .5s;
+    transition-delay: .5s;
+}
+
+.space-tags a:hover {
+    color: rgb(139, 92, 246);
+    text-decoration-line: #5acd86;
+    text-decoration: underline;
 }
 
 .post-category-img > img {
@@ -1195,7 +1191,6 @@ input#remember[type="checkbox"]:checked:after {
   }
 
 @media screen and (min-width: 768px) {
-
     /* paginate */ 
     .logo-place {
         width: 377px;
@@ -1352,6 +1347,15 @@ input#remember[type="checkbox"]:checked:after {
         width: 100%;
         padding-left: 21px;
     }
+    .excerpt-details > a:hover {
+        color: rgb(139, 92, 246);
+        text-decoration-line: #5acd86;
+        text-decoration: underline;
+    }
+    .excerpt > img {
+        width: 233px;
+        height: 233px;
+    }
     .excerpt-details > p {
         margin-left: 0;
     }
@@ -1466,31 +1470,18 @@ input#remember[type="checkbox"]:checked:after {
         grid-template-columns: 100px 1fr;
         grid-auto-rows: auto;
         width: 89%;
+        margin-top: 55px;
     }
     .post-desc {
         padding: 21px;
         background-color: #2d3748;
         border-radius: 5px;
         margin-bottom: 21px;
-    }
-    .button-area {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: end;
-        width: 100%;
-    }
-    .button-area > a .btn-readmore{
-        border-radius: 5px;
-        font-weight: bold;
-        font-weight: 1.2rem;
-        width: 133px;
-        height: 34px;
-        font-size: 1rem;
-        border: none;
+        margin-left: 0;
     }
     .posts-index > img {
         height: auto;
+        position: relative;
     }
     /* Single post */
     .single-post {

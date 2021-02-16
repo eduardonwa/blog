@@ -8,6 +8,8 @@
             plugins: 'emoticons table link code image lists',
             menubar: false,
             toolbar: 'bold italic underline | emoticons blockquote | image link | alignleft aligncenter alignright alignjustify | numlist bullist table | forecolor backcolor | fontselect formatselect lineheight',
+            skin: 'oxide-dark',
+            content_css : '/css/dark.css',
             mobile: {
                 theme: 'mobile'
             },
@@ -117,6 +119,7 @@
 
                             <h1> <strong> Currently Reading </strong> </h1> 
                             <input
+                                class="rounded-md h-12 border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent"
                                 type="text"
                                 name="reading_string"
                                 class="@error('reading_string')is-danger @enderror"
@@ -130,8 +133,8 @@
 
                             <h1> <strong> Currently Listening </strong> </h1> 
 
-                            <span> Album/Artist info: </span>
                             <input
+                                class="rounded-md h-12 border focus:outline-none focus:ring-2 active:rounded-md focus:ring-purple-600 focus:border-transparent bg-transparent"
                                 type="text"
                                 name="listening_string"
                                 class="@error('listening_string')is-danger @enderror"
@@ -145,6 +148,7 @@
 
                             <span> URL: </span>
                             <input
+                                class="rounded-md h-12 border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent"
                                 type="text"
                                 name="listening_url"
                                 class="@error('listening_url')is-danger @enderror"
@@ -158,37 +162,38 @@
                             
                             <div class="pt-4">
                                 <label class="block text-base font-medium text-white-700 text-center pb-4">
-                                    Profile picture
+                                    Upload file
                                 </label>
                                 
                                 <div class="mt-2 flex justify-center px-6 pt-5 pb-6 
                                             border-2 border-gray-300 border-dashed rounded-md">
                                     
                                     <div class="space-y-1 text-center">
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" 
-                                                stroke="currentColor" 
-                                                fill="none" 
-                                                viewBox="0 0 48 48" 
-                                                aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                            
                                         <div class="flex flex-col text-sm">  
                                             <label for="file-upload" 
-                                                    class="relative cursor-pointer 
-                                                            bg-green-400 rounded-md font-medium">
-                                                
-                                                <span style="color:black;">Upload a file</span>
-                                                
+                                                    class="relative cursor-pointer rounded-md font-medium">
                                                 <input 
                                                     id="file-upload" 
                                                     name="profile" 
                                                     type="file" 
                                                     class="sr-only @error('profile')is-danger @enderror">
+                                                        <svg class="mx-auto h-12 w-20"                                             
+                                                            width="89px"
+                                                            height="89px" 
+                                                            viewBox="0 0 63 39.2">
+                                                            <style type="text/css">
+                                                                .st0{fill:none;stroke:#9ca3af;stroke-width:2;stroke-miterlimit:10;}
+                                                                .st1{fill:none;stroke:#9ca3af;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+                                                            </style>
+                                                            <g>
+                                                                <circle class="st0" cx="38.5" cy="12.7" r="11.2"/>
+                                                                <path class="st0" d="M60.4,34.3l-0.1,0.1c-1.5,1.5-4,1.5-5.5,0L43.5,23.2l5.6-5.6l11.2,11.2C61.9,30.3,61.9,32.8,60.4,34.3z"/>
+                                                            </g>
+                                                            <line class="st1" x1="2" y1="29.6" x2="35.4" y2="29.6"/>
+                                                            <line class="st1" x1="2" y1="21.4" x2="21.1" y2="21.4"/>
+                                                            <line class="st1" x1="2.1" y1="37.2" x2="44.9" y2="37.2"/>
+                                                        </svg>
                                             </label>
-                                                <p class="pt-3" style="color: gainsboro;">
-                                                    or drag and drop
-                                                </p>
                                         </div>  
                                     </div>
                                 </div>
@@ -199,7 +204,7 @@
                                     </p>
                                 @enderror
 
-                            </div>
+                            </div> <!-- image end -->
 
                             <button class="submit-btn"> 
                                 Update Now 
@@ -216,7 +221,7 @@
                     <h1> <strong> Published Posts </strong> </h1>
                     @foreach($posts as $post)
                         @if($post->is_approved == 1)
-                            <a href="/posts/{{$post->slug}}"> <p> {{$post->title}} </p> </a>
+                            <a href="/posts/{{$post->slug}}"> <p class="no-underline hover:underline"> {{$post->title}} </p> </a>
                         @endif
                     @endforeach
                     <a class="browse-btn" href="/dashboard/posts"> Browse </a>
@@ -226,7 +231,7 @@
                     <h1> <strong> Drafts </strong> </h1>
                     @foreach($posts as $post)
                         @if($post->is_approved == 0)
-                            <a href="/posts/{{$post->slug}}"> <p> {{$post->title}} </p> </a>
+                            <a href="/posts/{{$post->slug}}"> <p class="no-underline hover:underline"> {{$post->title}} </p> </a>
                         @endif
                     @endforeach
                     <a class="browse-btn" href="/dashboard/posts"> Browse </a>

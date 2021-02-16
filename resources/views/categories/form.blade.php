@@ -1,13 +1,13 @@
 @csrf
 
-    <div class="flex items-start pt-8">                
+    <div class="flex items-start pt-8">
         <div class="flex flex-col">
-            <span class="pr-4 pb-4"> 
+            <span class="block text-base pb-3 font-medium text-white-700 text-center pb-4"> 
                 Name 
             </span>
 
             <input
-                class="text-black pl-2 rounded-sm @error('name')is-danger @enderror"
+                class="pl-2 rounded-md h-12 border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent @error('name')is-danger @enderror"
                 type="text"
                 name="name"
                 value="{{ old('name') ?? $category->name }}"
@@ -20,7 +20,7 @@
             @enderror  
             
             <div class="pt-4">
-                <label class="block text-base font-medium text-white-700 pb-4">
+                <label class="block text-base pb-3 font-medium text-white-700 text-center pb-4">
                     Image
                 </label>
     
@@ -34,32 +34,19 @@
                                 border-2 border-gray-300 border-dashed rounded-md">
                         
                         <div class="space-y-1 text-center">
-                            
-                            <svg class="mx-auto h-12 w-12 text-gray-400" 
-                                    stroke="currentColor" 
-                                    fill="none" 
-                                    viewBox="0 0 48 48" 
-                                    aria-hidden="true">
-                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                    
                             <div class="flex flex-col text-sm">  
                                 <label for="file-upload" 
-                                        class="relative cursor-pointer 
-                                                bg-green-400 rounded-md font-medium">
+                                        class="relative cursor-pointer rounded-md font-medium">
                                                 
-                                    <span style="color:black;">Upload a file</span>
+                                    <span class="pb-2">Upload a file</span>
+
                                     <input 
                                         id="file-upload" 
                                         name="icon" 
                                         type="file" 
-                                        class="@error('icon')is-danger @enderror sr-only"
-                                    >
+                                        class="@error('icon')is-danger @enderror sr-only">
+                                        <img src="/img/search-img-gray.png" id="preview" class="w-24"/>
                                 </label>
-
-                                <p class="pt-3" style="color: gainsboro;">
-                                    or drag and drop
-                                </p>
                                 @error('icon')
                                     <p class="is-danger">
                                         {{ $errors->first('icon') }}
@@ -78,3 +65,19 @@
             </div>
         </div>            
     </div>
+
+    <script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#file-upload").change(function(){
+            readURL(this);
+        });
+    </script>

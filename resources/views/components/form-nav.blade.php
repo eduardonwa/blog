@@ -8,7 +8,7 @@
 
     <div class="flex">
         <a href="/dashboard/{{ $type === 'posts' ? 'posts' : 'categories' }}"
-            class="text-md"> 
+            class="text-md no-underline hover:underline"> 
             <h1 class="text-yellow-200"> {{ $prevSection ?? 'Back'}} </h1> 
         </a>
     </div>

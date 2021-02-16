@@ -12,6 +12,7 @@
 @section('content')
 
     <div class="single-post">
+
         <img src="{{asset('/storage/img/post_uploads/'.$post->image_url) }}" alt="postimage"/> 
         <h1 class="header-post"> {{ $post->title }} </h1>
         {!! $post->body !!}
@@ -52,7 +53,7 @@
         const topBar = document.querySelector(".top-bar");
         topBar.style.cssText = "grid-template-columns: 1fr;";
         const menuBar = document.querySelector(".menu-bar");
-        menuBar.style.display = "none";
+        menuBar.style.cssText = "color: white;";
         const single = document.querySelector(".social-bar");
         single.style.display = "none";
     </script>
