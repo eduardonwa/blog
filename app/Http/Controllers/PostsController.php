@@ -64,19 +64,20 @@ class PostsController extends Controller
         if ($post->is_approved = $request->has('status')) {
         }
 
-        $fileExtension = request('image')->getClientOriginalName();
-        $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-        $extension = request('image')->getClientOriginalExtension();
-        $newFileName = $fileName . '_' . time() . '.' . $extension;
-        $imgPath = request('image')->storeAs('public/img/post_uploads', $newFileName);
+        if ($post->image_url = $request->has('image')) {
+            $fileExtension = request('image')->getClientOriginalName();
+            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
+            $extension = request('image')->getClientOriginalExtension();
+            $newFileName = $fileName . '_' . time() . '.' . $extension;
+            $imgPath = request('image')->storeAs('public/img/post_uploads', $newFileName);
+            $post->image_url = $newFileName;
+        } 
+            $user = auth()->user();
+            $post->user_id = $user->id;
+            $post->save();
+            $post->tags()->attach(request('tags'));
+        
 
-        $user = auth()->user();
-        $post->image_url = $newFileName;
-        $post->user_id = $user->id;
-    
-        $post->save();
-        $post->tags()->attach(request('tags'));
-    
         return redirect('/posts');
     }
 
