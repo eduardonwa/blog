@@ -144,7 +144,7 @@ textarea {
     height: 34px;
     width: 89px;
     font-size: .8rem;
-    margin: 13px;
+    margin: 8px;
     color: black;
     text-decoration: none;
 }
@@ -1048,7 +1048,7 @@ input#remember[type="checkbox"]:checked:after {
     width: 300px;
 }
 
-#updateBtn, #addBtn {
+#updateBtn, #addBtn, .browse-btn {
     background-color: #0ea7a7;
     font-size: 1rem;
     height: 55px;
@@ -1837,15 +1837,6 @@ input#remember[type="checkbox"]:checked:after {
     }
     .bio-form > input {
         width: 89%;
-    }
-    /* Categories */
-    .categories-list {
-        width: 100%;
-    }
-    .categories-list > h1 {
-        color: #5acd86;
-        margin: 21px auto;
-        font-size: 1.2rem;
     }
 }
 

@@ -10,6 +10,7 @@
                 class="pl-2 rounded-md h-12 border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent @error('name')is-danger @enderror"
                 type="text"
                 name="name"
+                required
                 value="{{ old('name') ?? $category->name }}"
             >
             
@@ -32,20 +33,17 @@
                 
                     <div class="mt-2 flex justify-center px-6 pt-5 pb-6 
                                 border-2 border-gray-300 border-dashed rounded-md">
-                        
                         <div class="space-y-1 text-center">
                             <div class="flex flex-col text-sm">  
                                 <label for="file-upload" 
                                         class="relative cursor-pointer rounded-md font-medium">
-                                                
-                                    <span class="pb-2">Upload a file</span>
-
-                                    <input 
-                                        id="file-upload" 
-                                        name="icon" 
-                                        type="file" 
-                                        class="@error('icon')is-danger @enderror sr-only">
-                                        <img src="/img/search-img-gray.png" id="preview" class="w-24"/>
+                                        <span class="pb-2">Upload a file</span>
+                                    <input id="file-upload" 
+                                            name="icon" 
+                                            type="file"
+                                            required
+                                            class="sr-only @error('icon')is-danger @enderror">
+                                    <img src="/img/search-img-gray.png" id="preview" class="w-24"/>
                                 </label>
                                 @error('icon')
                                     <p class="is-danger">
@@ -61,7 +59,6 @@
                 <button class="submit-btn">
                     {{ $submitButtonText ?? 'Create' }}
                 </button>  
-
             </div>
         </div>            
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -60,7 +61,6 @@ class CategoryController extends Controller
     public function show($id)
     {   
        $category = Category::find($id);
-       dd($category);
 
        return view('posts.show', compact($category));
     }
@@ -85,24 +85,29 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Category $category, Request $request)
+    public function update(Request $request, $id)
     {   
-        $validateData = request()->validate([
-            'name' => ['required', 'string', 'max:255']
-        ]);
+        $this->validate($request, array(
+            'name' => 'required|max:255'
+        ));
 
-        if ($request->has('image_url')) {
+        $category = Category::find($id);
+        $category->name = $request->input('name');
+
+        if ($request->has('icon')) {
             $fileExtension = request('icon')->getClientOriginalName();
             $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
             $extension = request('icon')->getClientOriginalExtension();
             $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('icon')->storeAs('public/img/post_uploads', $newFileName);
-
+            $imgPath = request('icon')->storeAs('public/img/category', $newFileName);
+        
+            unlink(storage_path('app/public/img/category/'.$category->image_url));
             $category->image_url = $newFileName;
+
             $category->save();
         }
 
-        $category->update($validateData);
+        $category->save();
 
         return redirect('/dashboard/categories');
     }

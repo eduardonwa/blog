@@ -4,7 +4,6 @@
     <script src="https://kit.fontawesome.com/aded4e055e.js" crossorigin="anonymous"></script>   
 @endsection
 
-
 @section('content')
 
     <div id="top">
@@ -52,7 +51,7 @@
                         </a>
 
                         <form method="POST" 
-                            action="{{ route('categories.destroy', ['category' => $category]) }}">
+                                action="{{ route('categories.destroy', ['category' => $category]) }}">
                                 @csrf
                                 @method('DELETE')
                             <button class="danger-btn" 

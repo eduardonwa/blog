@@ -31,6 +31,8 @@
 
 <x-form-nav type="posts" />
 
+    <h1 class="text-center m-8 text-2xl"> Edit Post </h1>
+
     <form method="POST" 
         action="/posts/{{ $post->slug }}" 
         class="newpost-form m-auto w-5/6"
@@ -42,18 +44,5 @@
             'category' => App\Models\Category::get()
         ])
     </form> <!-- Form end -->
-
-<script>
-    tinymce.init({
-        selector:'#bodyArea',
-        plugins: 'emoticons table link code image list',
-        menubar: false,
-        toolbar: 'bold italic underline | emoticons blockquote | image link | alignleft aligncenter alignright alignjustify | table numlist bullist | forecolor backcolor | fontselect formatselect lineheight',
-        mobile: {
-            theme: 'mobile'
-        },
-        encoding: 'xml html'
-    });
-</script>
 
 @endsection

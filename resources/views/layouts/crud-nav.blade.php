@@ -10,6 +10,8 @@
     @yield('head')
     <!-- css -->
     <link href="/css/main.css" rel="stylesheet">
+    <!-- select2css -->
+    @yield('select2min')
     <!-- tinymce -->
     @yield('tinymce')
     <!-- tailwind -->
@@ -22,7 +24,9 @@
     <div>
         @yield('content')
     </div>
-
+    
+    <!-- select2js -->
+    @yield('select2js')
 </body>
 </html>
 

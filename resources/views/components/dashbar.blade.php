@@ -9,6 +9,7 @@
       </div> <!--dropup end --> 
     
     <a href="/dashboard/categories"> <button class="dash-btn hide"> <i class="fas fa-stream"></i> Categories </button> </a>
+    <a href="/dashboard/tags"> <button class="dash-btn hide"> <i class="fas fa-hashtag"></i> Tags </button> </a>
     <a href="#"> <button class="dash-btn hide"> <i class="fas fa-envelope-open-text"></i> Email </button> </a>
     <a href="/"> <button class="dash-btn hide"> <i class="fas fa-home"></i> Homepage </button> </a>
     <a href="#"> <button class="dash-btn plusbtn" onclick="openNav()"> </button> </a>
@@ -20,6 +21,7 @@
         <a href="/dashboard/posts">Posts</a>
         <a href="/dashboard/categories">Categories</a>
         <a href="#">Email</a>
+        <a href="/dashboard/tags">Tags</a>
         <a href="/">Homepage</a>
       </div> <!-- Mobile dashbar end -->
   

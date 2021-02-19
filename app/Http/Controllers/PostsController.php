@@ -133,7 +133,9 @@ class PostsController extends Controller
             $newFileName = $fileName . '_' . time() . '.' . $extension;
             $imgPath = request('image')->storeAs('public/img/post_uploads', $newFileName);
 
+            unlink(storage_path('app/public/img/post_uploads/'.$post->image_url));
             $post->image_url = $newFileName;
+
             $post->save();
         }
 
@@ -169,7 +171,8 @@ class PostsController extends Controller
             'body'  => ['required'],
             'slug'  => ['required', 'string', 'max:100'],
             'tags' => ['exists:tags,id'],
-            'category_id' => ['required']
+            'category_id' => ['required'],
+            'image' => ['sometimes', 'image']
         ]);
     }
 

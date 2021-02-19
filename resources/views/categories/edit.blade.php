@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-
-<x-form-nav type="categories" />
+    <x-form-nav type="categories" />
 
     <form method="POST" 
         action="/categories/{{$category->id}}"

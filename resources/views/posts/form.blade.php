@@ -60,11 +60,13 @@
 
                         <label class="block text-base pb-3 font-medium text-white-700">
                             Tags
-                        </label>    
+                        </label>
 
                         <select name="tags[]" 
                                 multiple
-                                class="text-white rounded-sm text-black text-base border focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-transparent cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
+                                class="text-white rounded-sm text-black text-base border 
+                                        focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent 
+                                        bg-transparent cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
                             @foreach($tags as $tag)
                                 <option 
                                     value="{{ $tag->id }}"
@@ -89,7 +91,7 @@
                         <select
                             name="category_id"
                             required
-                            class="rounded-sm pl-2 text-black text-base appearance-none bg-transparent h-12 text-white
+                            class="rounded-sm pl-2 border text-black text-base appearance-none bg-transparent h-12 text-white
                                     text-white-700focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent
                                     cursor-pointer focus:outline-none focus:ring focus:border-blue-300">
                             @foreach($categories as $category)
@@ -133,7 +135,7 @@
                                             type="file" 
                                             class="@error('image')is-danger @enderror sr-only">
 
-                                            <img src="/img/search-img.png" id="preview" class="w-34"/>
+                                            <img src="/img/search-img.png" id="preview" class="w-32"/>
                                     </label>
 
                                 </div>  
@@ -167,7 +169,7 @@
                     </div> <!-- Submit button -->
             </div>
         </div> <!-- Slug, Tags, Image, Category & submit button end -->
-
+    
     <script>
         function readURL(input) {
         if (input.files && input.files[0]) {

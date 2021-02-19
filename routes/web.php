@@ -6,7 +6,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +29,6 @@ Route::get('/', function () {
         'about' => App\Models\About::take(1)->latest()->get()
     ]);
 });
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::post('/contact', [ContactController::class, 'incoming']);
 
 Route::get('posts', 
     [PostsController::class, 'index']
@@ -59,6 +53,12 @@ Route::get('/dashboard/categories', function(){
     ]);
 })->middleware('auth');
 
+Route::get('/dashboard/tags', function(){
+    return view('dashboard.tags', [
+        'tags' => App\Models\Tag::get()
+    ]);
+})->middleware('auth');
+
 require __DIR__.'/auth.php';
 
 Route::resource('posts', PostsController::class)
@@ -75,3 +75,4 @@ Route::resource('dashboard', HomeController::class)
     
 Route::resource('about', AboutController::class)->middleware('auth');
 Route::resource('categories', CategoryController::class)->middleware('auth');
+Route::resource('tags', TagController::class)->middleware('auth');

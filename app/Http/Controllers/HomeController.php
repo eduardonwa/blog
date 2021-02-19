@@ -16,11 +16,13 @@ class HomeController extends Controller
         $post = Post::latest()->take(13)->get();
         $category = Category::all();
         $about = About::take(1)->latest()->get();
+        $tag = Tag::take(5)->latest()->get();
 
         return view('/dashboard', [
             'posts' => $post,
             'category' => $category,
             'about' => $about,
+            'tag' => $tag
             ]);
     }
 }

@@ -70,8 +70,9 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $about = About::find($id);
+        return view('dashboard');
     }
 
     /**
@@ -81,9 +82,26 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, About $about)
     {
-        //
+        $this->validateAbout($request);
+
+        if ($request->has('profile')) {
+            $fileExtension = request('profile')->getClientOriginalName();
+            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
+            $extension = request('profile')->getClientOriginalExtension();
+            $newFileName = $fileName . '_' . time() . '.' . $extension;
+            $imgPath = request('profile')->storeAs('public/img/profile_pic', $newFileName);
+
+            unlink(storage_path('app/public/img/profile_pic/'.$about->image_url));
+            $about->image_url = $newFileName;
+
+            $about->save();
+        }
+
+        $about->save();
+
+        return redirect('dashboard');
     }
 
     /**

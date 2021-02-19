@@ -17,6 +17,7 @@
                     <a href="/dashboard">Dashboard</a>
                     <a href="/dashboard/create">+ Post</a>
                     <a href="/dashboard#category">+ Category</a>
+                    <a href="/dashboard#tag">+ Tag</a>
                     <a href="/dashboard#about">Update About</a>
                   </div>
 
