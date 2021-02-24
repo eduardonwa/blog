@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagController;
+use App\Mail\NewCommentEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ use App\Http\Controllers\TagController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/email', function() {
+    return new NewCommentEmail();
+});
 
 Route::get('test', function () {
     return view('test');

@@ -30,7 +30,7 @@
             <div class="quick-words">
               @foreach($posts as $post)
                 <div onmouseenter="bigImg(this)" onmouseleave="normalImg(this)" class="excerpt">
-                  <img src="{{asset('/storage/img/post_uploads/'.$post->image_url) }}" alt="postimage"/> 
+                  <img src="https://blog-img.s3.us-east-2.amazonaws.com/images/{{ $post->image_url }}">
                   <div class="excerpt-details">
                     <a href="/posts/{{ $post->slug }}"> <h1> {{ $post->title }} </h1> </a>
                     <p> {{ substr(strip_tags($post->body), 0, 250) }}{{ strlen(strip_tags($post->body)) > 300 ? "..." : "" }}</p>

@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Category;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {   
@@ -65,18 +66,13 @@ class PostsController extends Controller
         }
 
         if ($post->image_url = $request->has('image')) {
-            $fileExtension = request('image')->getClientOriginalName();
-            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-            $extension = request('image')->getClientOriginalExtension();
-            $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('image')->storeAs('public/img/post_uploads', $newFileName);
-            $post->image_url = $newFileName;
-        } 
+            $path = Storage::disk('s3')->put('images/', $request->file('image'));
+            $post->image_url = basename($path);
+        }
             $user = auth()->user();
             $post->user_id = $user->id;
             $post->save();
             $post->tags()->attach(request('tags'));
-        
 
         return redirect('/posts');
     }
@@ -87,7 +83,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $slug)
+    public function show(Post $slug, Request $request)
     {
         $category = Category::all();
 
