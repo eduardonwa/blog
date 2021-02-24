@@ -34,7 +34,7 @@
             <div class="index-content">
                 @foreach($category as $category)
                     <span> 
-                        <img src="{{ asset('/storage/img/category/'.$category->image_url) }}" alt="category">
+                        <img src="https://blog-img.s3.us-east-2.amazonaws.com/categories/{{ $category->image_url }}" alt="Category">
                     </span>
 
                     <span> {{ $category->name }} </span>

@@ -14,16 +14,17 @@
                 value="{{ old('name') ?? $tag->name }}"
             >
 
+            @error('name')
+                <p class="is-danger">
+                    {{ $errors->first('name') }}
+                </p>
+            @enderror 
+
             <div class="flex items-center justify-center">
                 <button class="submit-btn">
                     {{ $submitButtonText ?? 'Create' }}
                 </button>  
             </div>
 
-            @error('name')
-                <p class="is-danger">
-                    {{ $errors->first('name') }}
-                </p>
-            @enderror 
         </div>
     </div>

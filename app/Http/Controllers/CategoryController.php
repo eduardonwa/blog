@@ -39,13 +39,8 @@ class CategoryController extends Controller
     {
         $category = new Category(request(['name', 'image_url']));
 
-        $fileExtension = request('icon')->getClientOriginalName();
-        $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-        $extension = request('icon')->getClientOriginalExtension();
-        $newFileName = $fileName . '_' . time() . '.' . $extension;
-        $imgPath = request('icon')->storeAs('public/img/category', $newFileName);
-
-        $category->image_url = $newFileName;
+        $path = Storage::disk('s3')->put('categories/', $request->file('icon'));
+        $category->image_url = basename($path);
         
         $category->save();
 

@@ -115,7 +115,7 @@
                         </label>
 
                         @if($post->image_url == true)
-                            <img class="rounded-md shadow-2xl" src="{{ asset('/storage/img/post_uploads/'.$post->image_url) }}" alt="postimage"/> 
+                        <img src="https://blog-img.s3.us-east-2.amazonaws.com/images/{{ $post->image_url }}" alt="postimage">
                         @endif
                         
                         <div class="mt-1 flex justify-center px-6

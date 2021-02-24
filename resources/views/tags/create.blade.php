@@ -9,7 +9,7 @@
 
     <h1 class="text-center m-8 text-2xl"> New Tag </h1>
 
-    <form class="m-auto w-5/6"
+    <form class="bio-form m-auto w-5/6"
             method="POST"
             action="/tags">
 

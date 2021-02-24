@@ -12,7 +12,6 @@
 @section('content')
 
     <div class="single-post">
-
         <img src="https://blog-img.s3.us-east-2.amazonaws.com/images/{{ $post->image_url }}">
         <h1 class="header-post"> {{ $post->title }} </h1>
         {!! $post->body !!}

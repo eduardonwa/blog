@@ -44,16 +44,5 @@ class Post extends Model
         return $this->morphOne('App\Models\CustomComment', 'commentable');
     }
 
-    public static function getImage ($imagePath)
-    {
-        if(Storage::exists($imagePath))
-        {
-            return Storage::disk('s3')->get($imagePath);
-        }else
-        {
-            return 'No Image';
-        }
-    }
-
     use HasFactory, Commentable;
 }

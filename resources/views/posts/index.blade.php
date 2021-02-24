@@ -9,7 +9,7 @@
   <div class="posts-index">
     @forelse ($posts as $post)
       @if (isset($post->category->image_url))
-        <img src="{{ asset('/storage/img/category/'.$post->category->image_url) }}" alt="Category"/> 
+        <img src="https://blog-img.s3.us-east-2.amazonaws.com/categories/{{ $post->category->image_url }}" alt="Category">
         @else
         <img src="/img/no-category.png" alt="Not found category"/>
       @endif

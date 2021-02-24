@@ -26,7 +26,7 @@
                 </label>
     
                 @if($category->image_url == true)
-                    <img src="{{ asset('/storage/img/category/'.$category->image_url) }}" 
+                    <img src="https://blog-img.s3.us-east-2.amazonaws.com/categories/{{ $category->image_url }}" 
                         class="w-52 bg-gray-900 rounded-md" 
                         alt="categoryicon"/>
                 @endif
@@ -60,6 +60,7 @@
                     {{ $submitButtonText ?? 'Create' }}
                 </button>  
             </div>
+            
         </div>            
     </div>
 
