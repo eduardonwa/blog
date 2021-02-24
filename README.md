@@ -40,4 +40,3 @@ Again it's not literal and im not using all of those properties, but that's the 
 # What im still working on
 
 - Still inspecting the UI of the entire blog since Im just getting used to Tailwind most of the styling in this blog uses CSS so im in the middle of adopting this framework to design my webapp.
-- Updating categories, title and image. Title does gets updated but the image needs to be deleted before it gets sent again to the storage location and it must be done so that when one creates a new post, the form doesn't delete the last picture uploaded, many people seem to encounter this. 
