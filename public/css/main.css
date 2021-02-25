@@ -320,6 +320,10 @@ textarea {
     line-height: 21px;
 }
 
+.bio-message {
+    padding: 13px;
+}
+
 .bio-message > h1 {
     color: white;
     font-size: 1.5rem;
@@ -1398,6 +1402,7 @@ input#remember[type="checkbox"]:checked:after {
         grid-row: 2;
         grid-column: 1;
         width: auto;
+        shape-outside: circle(50%);
     }
     .bio > .bio-message {
         width: 100%;
@@ -1482,6 +1487,7 @@ input#remember[type="checkbox"]:checked:after {
     .posts-index > img {
         height: auto;
         position: relative;
+        bottom: 13px;
     }
     /* Single post */
     .single-post {

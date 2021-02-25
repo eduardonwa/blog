@@ -53,12 +53,11 @@
                 </div>
 
                 <div class="bio-currently">
-
                   <strong> Currently Reading </strong>
                   <p> {{ $about->reading_string }} </p>
                   <br/>
                   <strong> Last listened to </strong> 
-                  <a href="{{ $about->listening_url }}"> <p> {{ $about->listening_string }} </p> </a>
+                  <a href="{{ $about->listening_url }}"> <p style="background-color:#5acd86; color: black;"> {{ $about->listening_string }} </p> </a>
                   @endforeach
                 </div>
                 
