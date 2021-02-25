@@ -46,7 +46,7 @@
             <div class="bio">
               <h1 class="bio-header"> About </h1>
               @foreach ($about as $about)
-              <img src="{{asset('/storage/img/profile_pic/'.$about->image_url) }}" alt="profilepicture"/>         
+              <img src="https://blog-img.s3.us-east-2.amazonaws.com/images/{{ $about->image_url }}" alt="profilepicture"/>         
                 <div class="bio-message">
                   {!! $about->message !!}
                   <a href="/contact"><button> Contact Me </button></a>

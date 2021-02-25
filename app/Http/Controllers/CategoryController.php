@@ -90,15 +90,9 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
 
         if ($request->has('icon')) {
-            $fileExtension = request('icon')->getClientOriginalName();
-            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-            $extension = request('icon')->getClientOriginalExtension();
-            $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('icon')->storeAs('public/img/category', $newFileName);
-        
-            unlink(storage_path('app/public/img/category/'.$category->image_url));
-            $category->image_url = $newFileName;
-
+            Storage::disk('s3')->delete('categories/'.$category->image_url);
+            $path = Storage::disk('s3')->put('categories/', $request->file('icon'));
+            $category->image_url = basename($path);
             $category->save();
         }
 

@@ -79,7 +79,7 @@
                             About 
                     </h1>
                         @foreach($about as $about)
-                            <img class="rounded-full h-24 w-24" src="{{asset('/storage/img/profile_pic/'.$about->image_url) }}" alt="profilepicture"/> 
+                            <img class="rounded-full h-24 w-24" src="https://blog-img.s3.us-east-2.amazonaws.com/images/{{ $about->image_url }}" alt="profilepicture"/> 
                             <p class="pt-5"> {{ substr(strip_tags($about->message), 0, 200) }}{{ strlen(strip_tags($about->message)) > 300 ? "..." : "" }} </p>
                             <span class="text-green-300"> Currently Reading: </span>
                                 <p> {{ $about->reading_string }} </p>

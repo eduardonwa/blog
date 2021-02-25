@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -40,13 +41,8 @@ class AboutController extends Controller
         
         $about = new About(request(['message', 'reading_string', 'listening_string', 'listening_url', 'image_url']));
 
-        $fileExtension = request('profile')->getClientOriginalName();
-        $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-        $extension = request('profile')->getClientOriginalExtension();
-        $newFileName = $fileName . '_' . time() . '.' . $extension;
-        $imgPath = request('profile')->storeAs('public/img/profile_pic', $newFileName);
-
-        $about->image_url = $newFileName;
+        $path = Storage::disk('s3')->put('images/', $request->file('profile'));
+        $about->image_url = basename($path);
         $about->save();
         
         return redirect('dashboard');
@@ -87,14 +83,9 @@ class AboutController extends Controller
         $this->validateAbout($request);
 
         if ($request->has('profile')) {
-            $fileExtension = request('profile')->getClientOriginalName();
-            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-            $extension = request('profile')->getClientOriginalExtension();
-            $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('profile')->storeAs('public/img/profile_pic', $newFileName);
-
-            unlink(storage_path('app/public/img/profile_pic/'.$about->image_url));
-            $about->image_url = $newFileName;
+            Storage::disk('s3')->delete('images/'.$about->image_url);
+            $path = Storage::disk('s3')->put('images/', $request->file('profile'));
+            $about->image_url = basename($path);
 
             $about->save();
         }

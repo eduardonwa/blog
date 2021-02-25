@@ -124,15 +124,9 @@ class PostsController extends Controller
         $post['user_id'] = auth()->id();
 
         if ($request->has('image')) {
-            $fileExtension = request('image')->getClientOriginalName();
-            $fileName = pathInfo($fileExtension, PATHINFO_FILENAME);
-            $extension = request('image')->getClientOriginalExtension();
-            $newFileName = $fileName . '_' . time() . '.' . $extension;
-            $imgPath = request('image')->storeAs('public/img/post_uploads', $newFileName);
-
-            unlink(storage_path('app/public/img/post_uploads/'.$post->image_url));
-            $post->image_url = $newFileName;
-
+            Storage::disk('s3')->delete('images/'.$post->image_url);
+            $path = Storage::disk('s3')->put('images/', $request->file('image'));
+            $post->image_url = basename($path);
             $post->save();
         }
 
