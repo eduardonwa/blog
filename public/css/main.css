@@ -180,11 +180,6 @@ textarea {
     "footer";
 }
 
-.logo-place > img {
-    width: 100%;
-    margin: 34px 0;
-}
-
 .sesh-bar {
     padding: 21px;
     background-color: #181818;
@@ -248,6 +243,7 @@ textarea {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    margin-top: 13px;
 }
 
 .card-content {
@@ -263,9 +259,9 @@ textarea {
     text-align: center;
     width: 100%;
     padding: 21px;
-    background-color: #2D3748;
-    font-size: 1.1rem;
-    color: #5acd86;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: gainsboro;
 }
 
 .excerpt {
@@ -541,16 +537,15 @@ textarea {
 
 .link-purple:hover {
     color: #008080 !important;
-    text-decoration: none;
-    font-weight: bold;
-    transition-duration: .5s;
-    transition-delay: .5s;
+    text-decoration: underline;
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 .space-tags a:hover {
-    color: rgb(139, 92, 246);
-    text-decoration-line: #5acd86;
-    text-decoration: underline;
+    color: #5acd86;
+    transition-duration: .3s;
+    transition-delay: .1s;
 }
 
 .post-category-img > img {
@@ -675,16 +670,16 @@ textarea {
 }
 
 .menu-bar > a {
-    height: 55px;
+    height: 21px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     text-decoration: none;
     color: white;
+    font-size: 1.1rem;
 }
 
 .current-page-item {
-    background-color: teal;
     border-radius: 5px;
     padding: 21px;
 }
@@ -1197,7 +1192,7 @@ input#remember[type="checkbox"]:checked:after {
 @media screen and (min-width: 768px) {
     /* paginate */ 
     .logo-place {
-        width: 377px;
+        width: auto;
     }
     /* Top and center */
     .sesh-bar {
@@ -1229,7 +1224,6 @@ input#remember[type="checkbox"]:checked:after {
         grid-template-areas: 
         "logo social"
         "btns btns";
-        grid-gap: 13px;
         margin-top: 55px;
     }
     .menu-bar > a {
@@ -1258,6 +1252,7 @@ input#remember[type="checkbox"]:checked:after {
         align-items: center;
         justify-content: space-evenly;
         width: 100%;
+        margin-top: 0;
     }
     .menu-bar {
         background-color: transparent;
@@ -1269,9 +1264,12 @@ input#remember[type="checkbox"]:checked:after {
         grid-area: btns;
     }
     .current-page-item {
-        background-color: teal;
         border-radius: 5px;
         padding: 21px;
+        color: #5acd86 !important;
+        font-weight: bold;
+        transition-duration: .3s;
+        transition-delay: .1s;
     }
     .card-content {
         grid-area: cards;
@@ -1321,7 +1319,7 @@ input#remember[type="checkbox"]:checked:after {
         text-align: start;
         width: 100%;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.3rem;
         position: relative;
         background-color: transparent;
     }
@@ -1877,10 +1875,11 @@ input#remember[type="checkbox"]:checked:after {
             grid-gap: 34px;
         }
         .top-bar > img {
-            width: 89%;
+            width: 233px;
         }
         .logo-place {
             margin: 0;
+            width: auto;
         }
         .video {
             display: inline-block;

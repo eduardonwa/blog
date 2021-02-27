@@ -1,9 +1,12 @@
 <div class="top-bar">
-    <a class="logo-place" href="/"> <img src="/img/logo.png" alt="eduardocoello-logo"> </a>  
+    <a class="logo-place" href="/">
+        <x-app-long-logo />
+    </a>
     <div class="social-bar">
         <a href="https://www.youtube.com/channel/UChLo40pvODMn57BYHcQRfRg?view_as=subscriber"> 
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="55px"
-            height="55px" viewBox="0 0 54.6 54.6" style="enable-background:new 0 0 54.6 54.6;" xml:space="preserve">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+            width="34px"
+            height="34px" viewBox="0 0 54.6 54.6" style="enable-background:new 0 0 54.6 54.6;" xml:space="preserve">
             <style type="text/css">
             .st0-youtube{fill:#FF0000;}
             .st1-youtube{fill:#FFFFFF;}
@@ -25,8 +28,9 @@
             </svg> <!-- Svg end -->
         </a> <!-- youtube link end -->
         <a href="https://www.twitch.tv/warpig3"> 
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="55px"
-            height="55px" viewBox="0 0 490.7 512" style="enable-background:new 0 0 490.7 512;" xml:space="preserve">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+            width="34px"
+            height="34px" viewBox="0 0 490.7 512" style="enable-background:new 0 0 490.7 512;" xml:space="preserve">
             <style type="text/css">
             .st0-twitch{fill:#673AB7;}
             </style>
@@ -41,8 +45,9 @@
             </svg> <!-- Svg end -->
         </a> <!-- twitch link end -->
         <a href="https://dev.to/eduardonwa">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="55px"
-            height="55px" viewBox="0 0 452 452" style="enable-background:new 0 0 452 452;" xml:space="preserve">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+            width="34px"
+            height="34px" viewBox="0 0 452 452" style="enable-background:new 0 0 452 452;" xml:space="preserve">
             <style type="text/css">
             .st0-dev{fill:#FFFFFF;}
             </style>

@@ -19,7 +19,7 @@
 @section('content')
 
         <div class="card-content" style="width:100%;">
-          <h1 class="latest-header"> Latest Videos </h1>
+          <h1 class="latest-header"> Featured videos </h1>
               <div class="video">
                 <section id="video"></section>
                 <span style="text-align:center;padding-bottom:5px;color:gainsboro;"> Scroll down <i class="fas fa-level-down-alt"></i></span> 
